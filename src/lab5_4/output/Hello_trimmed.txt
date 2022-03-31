@@ -1,0 +1,9 @@
+package src.lab5_4.data; 
+
+public { 
+public static (String[] { 
+System.out.println("Hello world!");
+}
+}
+
+
