@@ -40,7 +40,6 @@ public class Program {
         try {
             Path inputPath = Paths.get("src/lab5_4/data/Prog.java");
 
-            List<String> strings = Files.readAllLines(inputPath, StandardCharsets.UTF_8);
             ArrayList<String> outList = new ArrayList<>();
             Stream<String> stream = Files.lines(inputPath);
             stream.forEach(line -> deleteWords(line, outList));
