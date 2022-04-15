@@ -26,4 +26,12 @@ public class Line {
     public void setDuplicate(boolean duplicate) {
         this.duplicate = duplicate;
     }
+
+    @Override
+    public String toString() {
+        return "Line{" +
+                "slope=" + slope +
+                ", points=" + points.toString() +
+                '}';
+    }
 }

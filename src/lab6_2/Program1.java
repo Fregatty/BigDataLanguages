@@ -1,16 +1,25 @@
 package src.lab6_2;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Program1 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ArrayList<Point> pointsArray = new ArrayList<>();
+        Path file = Paths.get("src/lab6_2/data/output.txt");
         pointsArray.add(new Point(1, 1));
         pointsArray.add(new Point(2, 2));
         pointsArray.add(new Point(1, 4));
         pointsArray.add(new Point(4, 4));
+        HashMap<Line, Integer> linePoints = new HashMap<>();
         ArrayList<Line> lines = new ArrayList<>();
 
         for (int i = 0; i < pointsArray.size(); i++){
@@ -39,9 +48,17 @@ public class Program1 {
         }
         for (Line j: lines) {
             if (!j.getDuplicate()) {
-                System.out.println(j.points.toString());
+                System.out.println(j);
+                linePoints.put(j, j.points.size());
             }
         }
+
+        Files.writeString(file,"");
+        for (Map.Entry<Line, Integer> entry : linePoints.entrySet()) {
+            Files.writeString(file, entry.getKey().toString() + " number of points: " + entry.getValue() + "\n",
+                    StandardOpenOption.APPEND);
+        }
+
     }
     public static float getSlope(Point a, Point b){
         if (b.getX() - a.getX() == 0) {
