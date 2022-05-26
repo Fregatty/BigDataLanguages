@@ -23,9 +23,12 @@ public class Program {
         int sum = 0;
         int mul = 1;
 
+        System.out.println("Аргументы командной строки:");
         for (String arg : args) {
             sum += Integer.parseInt(arg);
             mul *= Integer.parseInt(arg);
+            System.out.print(arg + ' ');
+            System.out.println();
         }
         System.out.println("Сумма: " + sum);
         System.out.println("Произведение: " + mul);

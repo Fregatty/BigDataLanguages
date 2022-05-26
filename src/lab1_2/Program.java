@@ -1,4 +1,4 @@
-package src.lab2_2;
+package src.lab1_2;
 import java.util.ArrayList;
 import java.util.Scanner;
 
