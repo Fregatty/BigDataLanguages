@@ -18,7 +18,6 @@ public class Program {
                 if (leg == currentLeg) {
                     step();
                     currentLeg = !leg;
-                    Thread.yield();
                 }
             }
         }
